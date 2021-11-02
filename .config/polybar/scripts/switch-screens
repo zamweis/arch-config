@@ -1,0 +1,49 @@
+#!/bin/bash
+
+## Created By lluks
+## switch to the wanted monitors and set the according audio using rofi and dmenu
+
+function init () {
+	# init polybar
+	sh /home/lluks/.config/polybar/launch.sh 2> /dev/null
+	echo -e "Displays set to: \e[32m"$1"\e[39m"
+	echo -e "\e[0mSelected sink is: \e[32m"$2"\e[39m"
+	pactl set-default-sink $2
+	# restore background
+	nitrogen --restore
+}
+
+MENU="$(rofi -sep "|" -dmenu -i -p 'System' -width 9 -hide-scrollbar -line-padding 4 -padding 20 -lines 4 <<< " Mirror| TV Only| Desk Only| All Monitors")"
+	case "$MENU" in
+		*'Mirror')
+			xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 1080x170 --rotate normal --output DP-2 --primary --mode 1920x1080 --pos 1080x170 --rotate normal --output DP-3 --off --output DP-4 --off --output DP-5 --mode 1920x1080 --pos 0x0 --rotate left
+			default_sink=$(pacmd list-sinks | grep -e 'name:' -e 'index:' | grep "hdmi" | awk '{print $2}'| awk '{print substr($0, 2, length($0) - 2)}')
+			sleep 3
+			init "${MENU:2}" $default_sink;;
+		*'TV Only')
+			xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off
+			sleep 1
+			default_sink=$(pacmd list-sinks | grep -e 'name:' -e 'index:' | grep "hdmi" | awk '{print $2}'| awk '{print substr($0, 2, length($0) - 2)}')
+			init "${MENU:2}" $default_sink;;
+                *'Desk Only')
+			if [ -z $(xrandr --listactivemonitors | awk '!/Monitors/ {print $4}' | grep HDMI-0) ]
+			then
+			    xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --off --output DP-2 --primary --mode 2560x1440 --pos 1080x240 --rotate normal --output DP-3 --off --output DP-4 --off --output DP-5 --mode 1920x1080 --pos 0x0 --rotate left
+			else
+			    xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate left --output DP-2 --primary --mode 2560x1440 --pos 1080x240 --rotate normal --output DP-3 --off --output DP-4 --off --output DP-5 --mode 1920x1080 --pos 0x0 --rotate left
+			fi
+			default_sink=$(pacmd list-sinks | grep -e 'name:' -e 'index:' | grep "Creative" | awk '{print $2}'| awk '{print substr($0, 2, length($0) - 2)}')
+			if [ -z "$default_sink" ]
+			then
+				sleep 1
+				default_sink=$(pacmd list-sinks | grep -e 'name:' -e 'index:' | grep "hdmi" | awk '{print $2}'| awk '{print substr($0, 2, length($0) - 2)}')
+			else
+				/home/lluks/.config/setmic.sh
+			fi
+			init "${MENU:2}" $default_sink;;
+		*'All Monitors')
+			xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 0x298 --rotate normal --output DP-2 --primary --mode 2560x1440 --pos 3000x170 --rotate normal --output DP-3 --off --output DP-4 --off --output DP-5 --mode 1920x1080 --pos 1920x0 --rotate left
+			sleep 1
+			default_sink=$(pacmd list-sinks | grep -e 'name:' -e 'index:' | grep "hdmi" | awk '{print $2}'| awk '{print substr($0, 2, length($0) - 2)}')
+			init "${MENU:2}" $default_sink;;
+	esac
