@@ -1,0 +1,11 @@
+#!/bin/bash
+
+## Created By Aditya Shakya
+
+MENU="$(rofi -sep "|" -dmenu -i -p 'System' -width 12 -hide-scrollbar -line-padding 4 -padding 20 -lines 4 <<< " Shutdown| Reboot| Logout| Lock")"
+            case "$MENU" in
+                *Shutdown) i3exit shutdown ;;
+                *Reboot) i3exit reboot ;;
+                *Logout) i3exit logout ;;
+                *Lock) i3exit lock
+            esac
