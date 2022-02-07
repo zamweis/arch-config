@@ -19,10 +19,10 @@ configuration {
 
 * {
     background:                     #00000000;
-    background-alt:              	#00000000;
-    background-bar:                 #f2f2f215;
+    background-alt:              	#00000070;
+    background-bar:                 #f2f2f2EE;
     foreground:                     #f2f2f2EE;
-    accent:			            	#3DAEE966;
+    accent:			            	#325465;
 }
 
 window {

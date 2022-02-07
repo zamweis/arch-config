@@ -241,16 +241,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym $left       resize shrink width 5 px or 5 ppt
-        bindsym $down       resize grow height 5 px or 5 ppt
-        bindsym $up         resize shrink height 5 px or 5 ppt
-        bindsym $right      resize grow width 5 px or 5 ppt
+        bindsym $left       resize shrink width 10 px or 10 ppt
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym $right      resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left        resize shrink width 5 px or 5 ppt
-        bindsym Down        resize grow height 5 px or 5 ppt
-        bindsym Up          resize shrink height 5 px or 5 ppt
-        bindsym Right       resize grow width 5 px or 5 ppt
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -307,11 +307,11 @@ exec_always --no-startup-id nitrogen --restore
 # exec --no-startup-id flameshot
 
 # picom
-exec_always --no-startup-id picom --config ~/.config/picom.conf
+exec_always --no-startup-id picom --experimental-backends --backend glx --config ~/.config/picom.conf
 
 # exec --no-startup-id start_conky_maia
 exec --no-startup-id clipit
-exec --no-startup-id xautolock -time 10 -locker blurlock
+#exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id xfce4-power-manager
 
@@ -350,7 +350,7 @@ bindsym $mod+F11 exec --no-startup-id catfish;focus
 #settings manager
 bindsym XF86Tools exec --no-startup-id xfce4-settings-manager
 
-#lock
+#powermenu
 bindsym $mod+0 exec --no-startup-id  ~/.config/rofi/applets/applets/powermenu.sh
 
 #pavucontrol

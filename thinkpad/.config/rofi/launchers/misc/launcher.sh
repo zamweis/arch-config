@@ -13,7 +13,7 @@
 # column	row			row_center		screen			row_dock
 # row_dropdown
 
-theme="kde_simplemenu"
+theme="launchpad"
 dir="$HOME/.config/rofi/launchers/misc"
 
 # comment these lines to disable random style

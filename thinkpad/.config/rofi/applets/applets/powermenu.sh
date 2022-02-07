@@ -18,25 +18,11 @@ memory=$($HOME/.config/rofi/bin/usedram)
 shutdown=""
 reboot=""
 lock=""
-suspend=""
+hibernate=""
 logout=""
 
-# Confirmation
-confirm_exit() {
-	rofi -dmenu\
-		-i\
-		-no-fixed-num-lines\
-		-p "Are You Sure? : "\
-		-theme $HOME/.config/rofi/applets/styles/confirm.rasi
-}
-
-# Message
-msg() {
-	rofi -theme "$HOME/.config/rofi/applets/styles/message.rasi" -e "Available Options  -  yes / y / no / n"
-}
-
 # Variable passed to rofi
-options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
+options="$shutdown\n$reboot\n$lock\n$hibernate\n$logout"
 
 chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 2)"
 case $chosen in
@@ -49,16 +35,13 @@ case $chosen in
 		
         ;;
     $lock)
-		if [[ -f /usr/bin/i3lock ]]; then
-			i3exit lock 
-		elif [[ -f /usr/bin/betterlockscreen ]]; then
-			betterlockscreen -l
-		fi
+		betterlockscreen -l dim
         ;;
-    $suspend)
+    $hibernate)
 		mpc -q pause
 		amixer set Master mute
-		systemctl suspend
+		systemctl hibernate
+		betterlockscreen -l dim
 		
         ;;
     $logout)
