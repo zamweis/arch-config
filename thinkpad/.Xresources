@@ -1,98 +1,95 @@
-Xft.dpi:       96
-Xft.antialias: true
-Xft.hinting:   true
-Xft.rgba:      rgb
-Xft.autohint:  false
-Xft.hintstyle: hintslight
-Xft.lcdfilter: lcddefault
+Xft.dpi:				96
+Xft.antialias:				true
+Xft.hinting:				true
+Xft.rgba:				rgb
+Xft.autohint:				false
+Xft.hintstyle:				hintslight
+Xft.lcdfilter:				lcddefault
 
-XTerm*background:        #222D31
-XTerm*foreground:        #d8d8d8
-XTerm*pointerColor:      #1ABB9B
-XTerm*faceName:          Fixed
-XTerm*faceSize:          11
-XTerm*reverseVideo:      on
-XTerm*selectToClipboard: true
+XTerm*background:			#222D31
+XTerm*foreground:			#d8d8d8
+XTerm*pointerColor:			#1ABB9B
+XTerm*faceName:				Fixed
+XTerm*faceSize:				11
+XTerm*reverseVideo:			on
+XTerm*selectToClipboard:		true
 
-*background:                      #222D31
-*foreground:                      #d8d8d8
-*fading:                          8
-*fadeColor:                       black
-*cursorColor:                     #1ABB9B
-*pointerColorBackground:          #2B2C2B
-*pointerColorForeground:          #16A085
+*background:				#222D31
+*foreground:				#d8d8d8
+*fading:				8
+*fadeColor:				black
+*cursorColor:				#1ABB9B
+*pointerColorBackground:		#2B2C2B
+*pointerColorForeground:		#16A085
 
 !! black dark/light
-*color0:                          #1E2127
-*color8:                          #5C6370
+*color0:				#1E2127
+*color8:				#5C6370
 
 !! red dark/light
-*color1:                          #E06C75
-*color9:                          #E06C75
+*color1:				#E06C75
+*color9:				#E06C75
 
 !! green dark/light
-*color2:                          #98C379
-*color10:                         #98C379
+*color2:				#98C379
+*color10:				#98C379
 
 !! yellow dark/light
-*color3:                          #D19A66
-*color11:                         #D19A66
+*color3:				#D19A66
+*color11:				#D19A66
 
 !! blue dark/light
-*color4:                          #61AFEF
-*color12:                         #61AFEF
+*color4:				#61AFEF
+*color12:				#61AFEF
 
 !! magenta dark/light
-*color5:                          #C678DD
-*color13:                         #C678DD
+*color5:				#C678DD
+*color13:				#C678DD
 
 !! cyan dark/light
-*color6:                          #56B6C2
-*color14:                         #56B6C2
+*color6:				#56B6C2
+*color14:				#56B6C2
 
 !! white dark/light
-*color7:                          #ABB2BF
-*color15:                         #FFFFFF
+*color7:				#ABB2BF
+*color15:				#FFFFFF
 
 Xcursor.theme: xcursor-breeze
-Xcursor.size:                     0
+Xcursor.size:				0
 
-!!URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
-URxvt.font:			  xft:FiraCode Nerd Font
 
-! alternative font settings with 'terminus':
-! URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
-! URxvt.bold.font: -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
-!! terminus names see end of file!
+URxvt*font:				xft:FiraCode Nerd Font, xft:Inconsolata Nerd Font Mono:minspace=False, xft:DejaVu Sans
 
-URxvt.depth:                      32
-URxvt.background:                 [100]#141B20
-URxvt*scrollBar:                  false
-URxvt*mouseWheelScrollPage:       false
-URxvt*cursorBlink:                true
-URxvt*background:                 black
-URxvt*foreground:                 grey
-URxvt*saveLines:                  5000
+
+URxvt.depth:				32
+URxvt.background:			[100]#141B20
+URxvt*scrollBar:			false
+URxvt*mouseWheelScrollPage:		false
+URxvt*cursorBlink:			true
+URxvt*background:			black
+URxvt*foreground:			grey
+URxvt*saveLines:			5000
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
-! URxvt*inheritPixmap:            true
-! URxvt*transparent:              true
-! URxvt*shading:                  138
+! URxvt*inheritPixmap:			true
+! URxvt*transparent:			true
+! URxvt*shading:			138
 
 ! Normal copy-paste keybindings without perls
-URxvt.iso14755:                   false
-URxvt.keysym.Shift-Control-V:     eval:paste_clipboard
-URxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard
+URxvt.iso14755:				false
+URxvt.keysym.Shift-Control-V:		eval:paste_clipboard
+URxvt.keysym.Shift-Control-C:		eval:selection_to_clipboard
+
 !Xterm escape codes, word by word movement
-URxvt.keysym.Control-Left:        \033[1;5D
-URxvt.keysym.Shift-Control-Left:  \033[1;6D
-URxvt.keysym.Control-Right:       \033[1;5C
-URxvt.keysym.Shift-Control-Right: \033[1;6C
-URxvt.keysym.Control-Up:          \033[1;5A
-URxvt.keysym.Shift-Control-Up:    \033[1;6A
-URxvt.keysym.Control-Down:        \033[1;5B
-URxvt.keysym.Shift-Control-Down:  \033[1;6B
-! Rxvt.perl-ext-common:             ...,clipboard
+URxvt.keysym.Control-Left:		\033[1;5D
+URxvt.keysym.Shift-Control-Left:	\033[1;6D
+URxvt.keysym.Control-Right:		\033[1;5C
+URxvt.keysym.Shift-Control-Right:	\033[1;6C
+URxvt.keysym.Control-Up:		\033[1;5A
+URxvt.keysym.Shift-Control-Up:		\033[1;6A
+URxvt.keysym.Control-Down:		\033[1;5B
+URxvt.keysym.Shift-Control-Down:	\033[1;6B
+! Rxvt.perl-ext-common:			...,clipboard
 ! URxvt.keysym.M-C-c:               perl:clipboard:copy
 ! URxvt.keysym.M-v:                 perl:clipboard:paste
 ! URxvt.keysym.M-C-v:               perl:clipboard:paste_escaped
@@ -218,20 +215,3 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 ! URxvt*tabbar-bg:                  colour
 ! URxvt*tabbar-fg:                  colour
 ! URxvt*url-launcher:               string
-
-! The Terminus font uses the following X-names:
-! -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
-! -xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1
-! -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
-! -xos4-terminus-medium-r-normal--20-200-72-72-c-100-iso10646-1
-! -xos4-terminus-medium-r-normal--22-220-72-72-c-110-iso10646-1
-! -xos4-terminus-medium-r-normal--24-240-72-72-c-120-iso10646-1
-! -xos4-terminus-medium-r-normal--28-280-72-72-c-140-iso10646-1
-! -xos4-terminus-medium-r-normal--32-320-72-72-c-160-iso10646-1
-! -xos4-terminus-bold-r-normal--12-120-72-72-c-60-iso10646-1
-! -xos4-terminus-bold-r-normal--14-140-72-72-c-80-iso10646-1
-! -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
-! -xos4-terminus-bold-r-normal--20-200-72-72-c-100-iso10646-1
-! -xos4-terminus-bold-r-normal--24-240-72-72-c-120-iso10646-1
-! -xos4-terminus-bold-r-normal--28-280-72-72-c-140-iso10646-1
-! -xos4-terminus-bold-r-normal--32-320-72-72-c-160-iso10646-1
